@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block nav %}
+{% include 'base/custom_nav.html' %}
+{% endblock %}
+
+{% block content %}
+<form method="POST" class="contact-form" style="width:60%; align:center; margin: 20px auto 20px;">
+    <h2 style="text-align: center;">{{ title }}</h2>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="d-grid" style="margin-top:10px; text-align: center;">
+        <button class="btn btn-dark btn-lg " id="submitButton" type="submit">Add</button>
+    </div>
+</form>
+{% endblock %}
