@@ -18,3 +18,4 @@ class FollowingUpForm(UpdateCSSClassFormMixin, forms.ModelForm):
     class Meta:
         model = FollowingUp
         fields = ('teacher', 'grade', 'lesson', 'notes', 'link')
+        labels = {'teacher': 'Facilitator'}

@@ -13,11 +13,13 @@ class Teacher(models.Model):
         return self.name
 
     class Meta:
+        verbose_name = 'Facilitator'
+        verbose_name_plural = 'Facilitators'
         ordering = ('-created', )
 
 
 class FollowingUp(models.Model):
-    teacher = models.ForeignKey(Teacher,  on_delete=models.SET_NULL, null=True, related_name='followings')
+    teacher = models.ForeignKey(Teacher,  on_delete=models.SET_NULL, null=True, related_name='followings', verbose_name='Facilitator')
     grade = models.IntegerField(null=True, validators=[MinValueValidator(1), MaxValueValidator(5)])
     lesson = models.CharField(max_length=60, null=True)
     notes = models.TextField(null=True, blank=True)
